@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// will add this back in once routes are configured, for now it throws an error due to the file not existing 
-// app.use(require("./routes"));
+
+app.use(require("./routes"));
 
 mongoose.connect(
   process.env.MONGODB_URI || `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
